@@ -1838,30 +1838,37 @@ Toggle:OnChanged(function(Value)
     RaceNguLon = Value
     StopTween(_G.Kill_V4)
 end)
-spawn(function()
-    while wait() do 
-        pcall(function()
-            if _G.Kill_V4 and HiruHub3 then
-                for i,v in pairs(game:GetService("Workspace").Characters:GetChildren()) do
-                    if v.Name ~= game.Players.LocalPlayer.Name and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 230 then
-                        if v.Humanoid.Health > 0 then
-                            repeat wait()
+spawn(
+    function()
+    while task.wait() do
+        if _G.Kill_V4 and HiruHub3 then
+            pcall(
+                function()
+    if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == true then
+                for i, v in pairs(game.Workspace.Characters:GetChildren()) do
+                    if v.Name ~= game.Players.LocalPlayer.Name then
+                        if v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") and v.Parent and (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude <= 230 then
+                            repeat task.wait()
                                 AutoHaki()
                                 EquipWeapon(_G.SelectWeapon)
                                 UsefastattackPlayers = true
-                                NameTarget = v.Name
                                 topos(v.HumanoidRootPart.CFrame * CFrame.new(1, 1, 2))
+                                v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                 v.HumanoidRootPart.CanCollide = false
                                 v.Head.CanCollide = false
-                                v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-                            until not _G.Kill_V4 or not v.Parent or v.Humanoid.Health <= 0 
+                                v.Humanoid.WalkSpeed = 0          
+              sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
+                            until _G.Kill_V4 == false or v.Humanoid.Health <= 0 or not v.Parent or not v:FindFirstChild("HumanoidRootPart") or not v:FindFirstChild("Humanoid")
+                            end
                         end
                     end
                 end
             end
-        end)
+            )
+        end
     end
-end)
+end
+)
 local Toggle = Tabs.Race:AddToggle("Toggle", {
     Title = "Auto Choose Gear",
     Description = "", 
