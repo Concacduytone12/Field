@@ -2964,12 +2964,18 @@ Toggle = Tabs.Shop:AddToggle("MyToggle", {Title = "Auto Random Bone", Default = 
 		saveSettings()
 		end)
     spawn(function()
-            while wait(.1) do
-                if _G.Auto_Random_Bone and World3 then    
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
-                end
-            end
-    end)                    
+   while wait() do
+     if _G.Auto_Random_Bone and World3 then
+        local args = {
+            [1] = "Bones",
+            [2] = "Buy",
+            [3] = 1,
+            [4] = 1
+            }
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+       end
+    end
+end)                    
 local Time = Tabs.Server:AddParagraph({
         Title = "Time Zone",
         Content = ""
