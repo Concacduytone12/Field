@@ -2609,7 +2609,7 @@ UIGradient.Parent = TextLabel
 loadSettings()
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local Window = Fluent:CreateWindow({
-    Title = "Hiru Hub Premium",
+    Title = "Hiru Hub Free",
     SubTitle = "• By เหงียน วู ดุย",
     TabWidth = 140,
     Size = UDim2.fromOffset(590, 320),
