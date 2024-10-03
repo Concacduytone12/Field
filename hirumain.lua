@@ -2607,7 +2607,7 @@ TextLabel.TextSize = 19.000
 UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.01, Color3.fromRGB(23, 48, 235)), ColorSequenceKeypoint.new(0.16, Color3.fromRGB(55, 23, 235)), ColorSequenceKeypoint.new(0.35, Color3.fromRGB(219, 13, 30)), ColorSequenceKeypoint.new(0.68, Color3.fromRGB(8, 152, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(114, 187, 255))}
 UIGradient.Parent = TextLabel
 loadSettings()
-local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/Concacduytone12/Field/refs/heads/main/Ui.lua"))()
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local Window = Fluent:CreateWindow({
     Title = "Hiru Hub •︎Free",
     SubTitle = "• By เหงียน วู ดุย",
